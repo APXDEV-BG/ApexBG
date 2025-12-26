@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apex BG Developments LLC | Plans & Permit Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Apex BG Developments LLC provides civil, architectural, structural, and MEP plans with full permit support across Texas." />
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+      background-color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(10, 23, 48, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    header.scrolled {
+      background: #0b1a3a;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo img {
+      height: 70px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav a:hover {
+      color: #66b3ff;
+    }
+    .header-contact {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-left: 1.5rem;
+      white-space: nowrap;
+    }
+    .header-contact a {
+      color: #66b3ff;
+      text-decoration: none;
+    }
+    .header-contact a:hover {
+      text-decoration: underline;
+    }
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(10, 23, 48, 0.7), rgba(10, 23, 48, 0.9)),
+      url('https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=1920&q=80')
+        center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      width: 100%;
+    }
+    .hero-text {
+      flex: 1 1 520px;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+    .hero-actions .btn {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn.primary {
+      background: #007bff;
+      color: #fff;
+    }
+    .btn.primary:hover {
+      background: #339dff;
+    }
+    .btn.secondary {
+      border: 1px solid #fff;
+      color: #fff;
+      margin-left: 1rem;
+    }
+    /* SECTIONS */
+    .section {
+      padding: 80px 0;
+    }
+    .section-alt {
+      background: #f8f8f8;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+    .divider {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
+    .divider span {
+      color: #007bff;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+    }
+    /* SERVICES GRID WITH ICONS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .service-item {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .service-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      object-fit: contain;
+    }
+    .service-item h3 {
+      margin-bottom: 1rem;
+      color: #0b1a3a;
+    }
+    .service-item p {
+      line-height: 1.6;
+      color: #444;
+    }
+    /* PORTFOLIO SECTION - Full images, no cropping */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .portfolio-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .portfolio-image {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #f8f8f8;
+    }
+    .portfolio-content {
+      padding: 1.5rem;
+    }
+    .portfolio-content h3 {
+      margin: 0 0 0.8rem;
+      color: #0b1a3a;
+    }
+    .portfolio-content p {
+      line-height: 1.6;
+      color: #444;
+      margin: 0;
+    }
+    /* REVIEWS SECTION */
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #007bff;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b1a3a;
+    }
+    .review-rating {
+      margin-left: auto;
+      font-size: 1.4rem;
+      color: #ffd700;
+    }
+    .review-text {
+      line-height: 1.7;
+      color: #555;
+      font-size: 1rem;
+    }
+    .review-form-container {
+      margin-top: 5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .review-form h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0b1a3a;
+      font-size: 1.5rem;
+    }
+    .review-form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .review-form input,
+    .review-form select,
+    .review-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .review-form input:focus,
+    .review-form select:focus,
+    .review-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .review-form button {
+      background: #007bff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .review-form button:hover {
+      background: #0056b3;
+    }
+    /* CONTACT FORM */
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .contact-form button {
+      background: #007bff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+    /* FOOTER */
+    .site-footer {
+      background: #0b1a3a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .footer-contact {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .footer-contact a {
+      color: #66b3ff;
+      text-decoration: none;
+    }
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="logo.png" alt="Apex BG Developments Logo" />
+      </div>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">How We Work</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact" class="nav-cta">Request a Quote</a>
+        <div class="header-contact">
+          <a href="mailto:apxdev1@gmail.com">apxdev1@gmail.com</a> | <a href="tel:+12147132593">(214) 713-2593</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-content" data-aos="fade-up">
+      <div class="hero-text">
+        <img src="logo.png" alt="Apex BG Developments" style="height:120px;margin-bottom:1.5rem;" />
+        <h1>Plans & Permit Support That Actually Gets Approved.</h1>
+        <p>
+          Apex BG Developments LLC helps visionaries (Contractors, Builders, Investors, Owners, Etc.) get permits for both residential and commercial projects.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn primary">Request a Quote</a>
+          <a href="#services" class="btn secondary">See Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- SERVICES -->
+    <section id="services" class="section section-alt" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>
+            We provide plans and development support focused on getting projects permitted and built.
+            Our work covers civil, architectural, structural, and MEP coordination, and specialty items required
+            by local jurisdictions for both residential and commercial projects. Every deliverable is prepared
+            with city review standards in mind—clear, complete, and ready for approval.
+          </p>
+          <div class="divider"><span>⸻</span></div>
+        </div>
+        <div class="services-grid">
+          <div class="service-item">
+            <img src="https://media.istockphoto.com/id/1474854515/vector/building-architecture-and-engineering-thin-line-icons-editable-stroke.jpg?s=612x612&w=0&k=20&c=B2UcKDj3jenq6HlTUJdfeULLC6fJ6EU6p6SE8SlvOWs=" alt="Civil Plans Icon" class="service-icon">
+            <h3>Civil Plans</h3>
+            <p>Site plans, grading, drainage, and utility coordination tailored for smooth permit approval.</p>
+          </div>
+          <div class="service-item">
+            <img src="https://media.istockphoto.com/id/1340093414/vector/interior-design-line-icons-vector-illustration-include-icon-architecture-blueprint-project.jpg?s=612x612&w=0&k=20&c=9Pn5gTDx-4-9oStC_SHsmA8c-7Sjeq-7nS-FqMSekDg=" alt="Architectural Plans Icon" class="service-icon">
+            <h3>Architectural Plans</h3>
+            <p>Building layouts, floor plans, elevations, and code-compliant designs for residential and commercial.</p>
+          </div>
+          <div class="service-item">
+            <img src="https://media.istockphoto.com/id/1663675264/vector/beam-construction-icon-design-vector-flat-isolated-illustration.jpg?s=612x612&w=0&k=20&c=wQTW_vMhnZU26bnC5uYYXM-8Ee5h6qc_nedFW5nofNk=" alt="Structural Plans Icon" class="service-icon">
+            <h3>Structural Plans</h3>
+            <p>Foundation design, framing plans, beams, and calculations to ensure safety and compliance.</p>
+          </div>
+          <div class="service-item">
+            <img src="https://img.freepik.com/free-vector/bundle-engineering-set-icons_24877-57318.jpg?semt=ais_hybrid&w=740&q=80" alt="MEP Coordination Icon" class="service-icon">
+            <h3>MEP Coordination</h3>
+            <p>Mechanical, electrical, and plumbing systems integrated seamlessly with architectural and structural plans.</p>
+          </div>
+          <div class="service-item">
+            <img src="https://media.istockphoto.com/id/2148230612/vector/approval-icon-set.jpg?s=612x612&w=0&k=20&c=ExmKia2shljNCTIeWZeRGtuo8f0GOJtRMthm9V1ax4w=" alt="Permit Support Icon" class="service-icon">
+            <h3>Permit Support & Specialty Items</h3>
+            <p>Full permit sets, revisions, and jurisdiction-specific requirements handled from submission to approval.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Project Portfolio</h2>
+          <p>
+            Explore some of our recent completed projects.
+          </p>
+          <div class="divider"><span>⸻</span></div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img src="project1.jpg" alt="Back Nine Golf – Commercial Entertainment Build" class="portfolio-image">
+            <div class="portfolio-content">
+              <h3>Back Nine Golf – Commercial Entertainment Build</h3>
+              <p>We supported the build-out of this indoor golf entertainment space, helping bring a high-end, tech-driven concept to life. With support, our team helped make sure the space was clean, functional, and ready for heavy commercial use. This is one of many entertainment projects we’ve helped deliver for repeat clients.</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="project2.jpg" alt="Modern Residential Home" class="portfolio-image">
+            <div class="portfolio-content">
+              <h3>Modern Residential Home</h3>
+              <p>We provided planning for this modern single-family home, ensuring efficient routing, proper tie-ins, and smooth city approval. Our work helped streamline construction and keep the project moving without delays.</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="project3.jpg" alt="Tropical Smoothie Café – Retail Buildout" class="portfolio-image">
+            <div class="portfolio-content">
+              <h3>Tropical Smoothie Café – Retail Buildout</h3>
+              <p>We supported the planning and build coordination for this Tropical Smoothie Café location, helping streamline the layout, exterior design, and site integration. A clean, efficient build designed for high traffic, strong branding, and smooth day-to-day operations.</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="project4.png" alt="Outdoor Sauna – Structural Design" class="portfolio-image">
+            <div class="portfolio-content">
+              <h3>Outdoor Sauna – Structural Design</h3>
+              <p>We delivered the design for this modern outdoor sauna, ensuring strength, stability, and clean lines. Created for durability and compliance, this build blends premium aesthetics with long-term performance.</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="project5.png" alt="Patio Covers & Outdoor Living Spaces" class="portfolio-image">
+            <div class="portfolio-content">
+              <h3>Patio Covers & Outdoor Living Spaces</h3>
+              <p>We’ve helped bring dozens of outdoor living projects like these to life, supporting everything from layout planning to city/county coordination. These are just a few examples — we assist with over 20+ patio cover projects every year, helping homeowners create clean, functional, and long-lasting outdoor spaces built to fit their lifestyle.</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img src="project6.png" alt="20,000+ SF Dormitory – Concept & Design Support" class="portfolio-image">
+            <div class="portfolio-content">
+              <h3>20,000+ SF Dormitory – Concept & Design Support</h3>
+              <p>We assisted in the planning and design coordination for this 20,000 SF dormitory concept, helping shape a clean, modern layout built for scale and functionality. From early layout strategy to overall project coordination, this project reflects our experience handling large-footprint residential and institutional developments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- HOW WE WORK -->
+    <section id="process" class="section section-alt" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>How We Work</h2>
+          <p>
+            We keep the process straightforward: understand the scope, identify jurisdictional requirements, and
+            produce documents that satisfy clients and the city through permitting. We communicate directly and
+            stay involved through permit approval, so projects keep moving.
+          </p>
+          <div class="divider"><span>⸻</span></div>
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT -->
+    <section id="about" class="section" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Apex BG Developments LLC</h2>
+          <p>
+            Apex BG Developments LLC is a Texas-based design and development company supporting commercial and
+            residential projects across multiple municipalities. Led by professionals with over five years of hands-on
+            experience in the real estate development industry, the company specializes in delivering practical,
+            code-compliant solutions aligned with jurisdiction-specific review standards. Apex BG is built on
+            efficiency, accountability, and producing work that withstands real-world permitting and regulatory scrutiny.
+          </p>
+          <div class="divider"><span>⸻</span></div>
+        </div>
+      </div>
+    </section>
+    <!-- REVIEWS -->
+    <section id="reviews" class="section section-alt" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Client Reviews</h2>
+          <p>
+            Hear directly from our satisfied clients. Your feedback helps us improve and lets others know what to expect.
+          </p>
+          <div class="divider"><span>⸻</span></div>
+        </div>
+        <div class="reviews-container" id="reviews-list">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">JD</div>
+              <div>
+                <div class="review-name">Raul Martinez</div>
+              </div>
+              <div class="review-rating">★★★★★</div>
+            </div>
+            <p class="review-text">Excellent service! Got our permits approved without any issues. Highly professional and responsive throughout the process.</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">JS</div>
+              <div>
+                <div class="review-name">Rosa R</div>
+              </div>
+              <div class="review-rating">★★★★☆</div>
+            </div>
+            <p class="review-text">Professional and efficient team. They navigated complex city requirements smoothly. Would definitely recommend to other developers.</p>
+          </div>
+        </div>
+        <div class="review-form-container">
+          <h3>Leave a Review</h3>
+          <form class="review-form" id="review-form" action="https://formspree.io/f/xqekarzz" method="POST">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+              <option value="5">★★★★★ Excellent</option>
+              <option value="4">★★★★☆ Very Good</option>
+              <option value="3">★★★☆☆ Good</option>
+              <option value="2">★★☆☆☆ Fair</option>
+              <option value="1">★☆☆☆☆ Poor</option>
+            </select>
+            <label for="comment">Your Review</label>
+            <textarea id="comment" name="comment" rows="5" required placeholder="Share your experience..."></textarea>
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT / REQUEST A QUOTE -->
+    <section id="contact" class="section section-alt" data-aos="fade-up">
+      <div class="container">
+        <div class="section-header">
+          <h2>Request a Quote</h2>
+          <p>
+            Tell us about your project and we'll get back to you with next steps, timeline, and deliverables.
+          </p>
+          <div class="divider"><span>⸻</span></div>
+        </div>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqekarzz" method="POST">
+          <label for="c-name">Your Name *</label>
+          <input type="text" id="c-name" name="name" required placeholder="John Doe">
+          <label for="c-email">Email *</label>
+          <input type="email" id="c-email" name="email" required placeholder="john@example.com">
+          <label for="c-phone">Phone (optional)</label>
+          <input type="tel" id="c-phone" name="phone" placeholder="(555) 123-4567">
+          <label for="c-project-type">Project Type</label>
+          <select id="c-project-type" name="project-type">
+            <option value="">Select one...</option>
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial (Restaurant, Office, etc.)</option>
+            <option value="civil">Civil / Site Development</option>
+            <option value="other">Other</option>
+          </select>
+          <label for="c-message">Project Details *</label>
+          <textarea id="c-message" name="message" rows="6" required placeholder="Tell us about your project, location, timeline, etc."></textarea>
+          <button type="submit">Submit Request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Apex BG Developments LLC. All rights reserved.</p>
+      <p>Plans & permit support for visionaries.</p>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:apxdev1@gmail.com">apxdev1@gmail.com</a> | Phone: <a href="tel:+12147132593">(214) 713-2593</a></p>
+      </div>
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    window.addEventListener("scroll", function() {
+      const header = document.getElementById("site-header");
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

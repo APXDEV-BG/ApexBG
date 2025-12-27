@@ -69,6 +69,32 @@
     .header-contact a:hover {
       text-decoration: underline;
     }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
     /* HERO */
     .hero {
       background: linear-gradient(rgba(10, 23, 48, 0.7), rgba(10, 23, 48, 0.9)),
@@ -81,32 +107,32 @@
       padding-top: 100px;
     }
     .hero-content {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
+      text-align: center;
       width: 100%;
     }
-    .hero-text {
-      flex: 1 1 520px;
-    }
     .hero-text h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
     .hero-text p {
       line-height: 1.6;
-      margin-bottom: 1.5rem;
-      max-width: 600px;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .hero-actions .btn {
-      padding: 0.8rem 1.2rem;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
+      min-width: 200px;
     }
     .btn.primary {
       background: #007bff;
@@ -116,10 +142,15 @@
       background: #339dff;
     }
     .btn.secondary {
-      border: 1px solid #fff;
+      border: 2px solid #fff;
       color: #fff;
-      margin-left: 1rem;
+      background: transparent;
     }
+    .btn.secondary:hover {
+      background: #fff;
+      color: #007bff;
+    }
+
     /* SECTIONS */
     .section {
       padding: 80px 0;
@@ -142,7 +173,8 @@
       font-size: 1.5rem;
       letter-spacing: 3px;
     }
-    /* SERVICES GRID WITH ICONS */
+
+    /* SERVICES GRID */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -175,7 +207,8 @@
       line-height: 1.6;
       color: #444;
     }
-    /* PORTFOLIO SECTION - Full images, no cropping */
+
+    /* PORTFOLIO */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -212,7 +245,8 @@
       color: #444;
       margin: 0;
     }
-    /* REVIEWS SECTION */
+
+    /* REVIEWS */
     .reviews-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -318,6 +352,7 @@
     .review-form button:hover {
       background: #0056b3;
     }
+
     /* CONTACT FORM */
     .contact-form {
       max-width: 700px;
@@ -366,6 +401,7 @@
     .contact-form button:hover {
       background: #0056b3;
     }
+
     /* FOOTER */
     .site-footer {
       background: #0b1a3a;
@@ -384,16 +420,79 @@
     .footer-contact a:hover {
       text-decoration: underline;
     }
+
+    /* RESPONSIVE IMPROVEMENTS */
+    @media (max-width: 992px) {
+      .header-contact {
+        display: none;
+      }
+      .nav a {
+        margin-left: 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      .nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #0b1a3a;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .nav.active {
+        max-height: 600px;
+      }
+      .nav a {
+        padding: 1.2rem;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions .btn {
+        width: 80%;
+        max-width: 300px;
+      }
+      .logo img {
+        height: 55px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 60px 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- HEADER with Mobile Hamburger -->
   <header class="site-header" id="site-header">
     <div class="container header-content">
       <div class="logo">
         <img src="logo.png" alt="Apex BG Developments Logo" />
       </div>
-      <nav class="nav">
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav" id="nav-menu">
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#process">How We Work</a>
@@ -406,7 +505,8 @@
       </nav>
     </div>
   </header>
-  <!-- HERO -->
+
+  <!-- HERO - Centered on mobile -->
   <section class="hero" id="hero">
     <div class="container hero-content" data-aos="fade-up">
       <div class="hero-text">
@@ -422,6 +522,7 @@
       </div>
     </div>
   </section>
+
   <!-- MAIN CONTENT -->
   <main>
     <!-- SERVICES -->
@@ -466,14 +567,13 @@
         </div>
       </div>
     </section>
+
     <!-- PORTFOLIO -->
     <section id="portfolio" class="section" data-aos="fade-up">
       <div class="container">
         <div class="section-header">
           <h2>Project Portfolio</h2>
-          <p>
-            Explore some of our recent completed projects.
-          </p>
+          <p>Explore some of our recent completed projects.</p>
           <div class="divider"><span>⸻</span></div>
         </div>
         <div class="portfolio-grid">
@@ -522,6 +622,7 @@
         </div>
       </div>
     </section>
+
     <!-- HOW WE WORK -->
     <section id="process" class="section section-alt" data-aos="fade-up">
       <div class="container">
@@ -536,6 +637,7 @@
         </div>
       </div>
     </section>
+
     <!-- ABOUT -->
     <section id="about" class="section" data-aos="fade-up">
       <div class="container">
@@ -552,20 +654,19 @@
         </div>
       </div>
     </section>
+
     <!-- REVIEWS -->
     <section id="reviews" class="section section-alt" data-aos="fade-up">
       <div class="container">
         <div class="section-header">
           <h2>Client Reviews</h2>
-          <p>
-            Hear directly from our satisfied clients. Your feedback helps us improve and lets others know what to expect.
-          </p>
+          <p>Hear directly from our satisfied clients. Your feedback helps us improve and lets others know what to expect.</p>
           <div class="divider"><span>⸻</span></div>
         </div>
         <div class="reviews-container" id="reviews-list">
           <div class="review-card">
             <div class="review-header">
-              <div class="review-avatar">JD</div>
+              <div class="review-avatar">RM</div>
               <div>
                 <div class="review-name">Raul Martinez</div>
               </div>
@@ -575,7 +676,7 @@
           </div>
           <div class="review-card">
             <div class="review-header">
-              <div class="review-avatar">JS</div>
+              <div class="review-avatar">RR</div>
               <div>
                 <div class="review-name">Rosa R</div>
               </div>
@@ -604,14 +705,13 @@
         </div>
       </div>
     </section>
-    <!-- CONTACT / REQUEST A QUOTE -->
+
+    <!-- CONTACT -->
     <section id="contact" class="section section-alt" data-aos="fade-up">
       <div class="container">
         <div class="section-header">
           <h2>Request a Quote</h2>
-          <p>
-            Tell us about your project and we'll get back to you with next steps, timeline, and deliverables.
-          </p>
+          <p>Tell us about your project and we'll get back to you with next steps, timeline, and deliverables.</p>
           <div class="divider"><span>⸻</span></div>
         </div>
         <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqekarzz" method="POST">
@@ -636,6 +736,7 @@
       </div>
     </section>
   </main>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
@@ -646,15 +747,27 @@
       </div>
     </div>
   </footer>
+
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
     window.addEventListener("scroll", function() {
       const header = document.getElementById("site-header");
       header.classList.toggle("scrolled", window.scrollY > 50);
     });
+
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
   </script>
 </body>
 </html>

@@ -7,6 +7,8 @@
   <meta name="description" content="Apex BG Developments LLC provides civil, architectural, structural, and MEP plans with full permit support across Texas." />
   <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Font Awesome for Facebook Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
@@ -402,7 +404,7 @@
       background: #0056b3;
     }
 
-    /* FOOTER */
+    /* FOOTER - With Facebook icon */
     .site-footer {
       background: #0b1a3a;
       color: #fff;
@@ -419,6 +421,18 @@
     }
     .footer-contact a:hover {
       text-decoration: underline;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: #66b3ff;
+      font-size: 1.8rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #3b5998; /* Facebook blue */
     }
 
     /* RESPONSIVE IMPROVEMENTS */
@@ -500,7 +514,7 @@
         <a href="#reviews">Reviews</a>
         <a href="#contact" class="nav-cta">Request a Quote</a>
         <div class="header-contact">
-          <a href="mailto:apxdev1@outlook.com">apxdev1@outlook.com</a> | <a href="tel:+12147132593">(214) 713-2593</a>
+          <a href="mailto:apxdev1@gmail.com">apxdev1@gmail.com</a> | <a href="tel:+12147132593">(214) 713-2593</a>
         </div>
       </nav>
     </div>
@@ -657,7 +671,7 @@
       </div>
     </section>
 
-    <!-- REVIEWS - Updated with latest client review at the top -->
+    <!-- REVIEWS -->
     <section id="reviews" class="section section-alt" data-aos="fade-up">
       <div class="container">
         <div class="section-header">
@@ -668,7 +682,6 @@
           <div class="divider"><span>⸻</span></div>
         </div>
         <div class="reviews-container" id="reviews-list">
-          <!-- Latest approved review -->
           <div class="review-card">
             <div class="review-header">
               <div class="review-avatar">DN</div>
@@ -679,7 +692,6 @@
             </div>
             <p class="review-text">I gave them the most complex summary of what I needed done, and they did more than deliver. They EXCEEDED my expectations!</p>
           </div>
-          <!-- Previous reviews -->
           <div class="review-card">
             <div class="review-header">
               <div class="review-avatar">RM</div>
@@ -755,13 +767,18 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER - With Facebook icon linking to your personal page -->
   <footer class="site-footer">
     <div class="container">
       <p>© <span id="year"></span> Apex BG Developments LLC. All rights reserved.</p>
       <p>Plans & permit support for visionaries.</p>
       <div class="footer-contact">
-        <p>Email: <a href="mailto:apxdev1@outlook.com">apxdev1@outlook.com</a> | Phone: <a href="tel:+12147132593">(214) 713-2593</a></p>
+        <p>Email: <a href="mailto:apxdev1@gmail.com">apxdev1@gmail.com</a> | Phone: <a href="tel:+12147132593">(214) 713-2593</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/bobby.greene.568659" target="_blank" aria-label="Bobby Greene on Facebook">
+          <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
       </div>
     </div>
   </footer>

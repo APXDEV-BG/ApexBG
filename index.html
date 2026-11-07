@@ -241,6 +241,16 @@
       color: #444;
     }
 
+    .service-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .service-link .service-item {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
     /* PORTFOLIO */
     .portfolio-grid {
       display: grid;
@@ -552,7 +562,7 @@
       <div class="logo">
         <img src="logo.png" alt="Apex BG Developments Logo" />
       </div>
-      <div class="menu-toggle" id="menu-toggle">
+      <div class="menu-toggle" id="menu-toggle" role="button" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -613,31 +623,41 @@
           <div class="divider"><span>⸻</span></div>
         </div>
         <div class="services-grid">
-          <div class="service-item">
-            <img src="https://media.istockphoto.com/id/1474854515/vector/building-architecture-and-engineering-thin-line-icons-editable-stroke.jpg?s=612x612&w=0&k=20&c=B2UcKDj3jenq6HlTUJdfeULLC6fJ6EU6p6SE8SlvOWs=" alt="Civil Plans Icon" class="service-icon">
-            <h3>Civil Plans</h3>
-            <p>Site plans, grading, drainage, and utility coordination tailored for smooth permit approval.</p>
-          </div>
-          <div class="service-item">
-            <img src="https://media.istockphoto.com/id/1340093414/vector/interior-design-line-icons-vector-illustration-include-icon-architecture-blueprint-project.jpg?s=612x612&w=0&k=20&c=9Pn5gTDx-4-9oStC_SHsmA8c-7Sjeq-7nS-FqMSekDg=" alt="Architectural Plans Icon" class="service-icon">
-            <h3>Architectural Plans</h3>
-            <p>Building layouts, floor plans, elevations, and code-compliant designs for residential and commercial.</p>
-          </div>
-          <div class="service-item">
-            <img src="https://media.istockphoto.com/id/1663675264/vector/beam-construction-icon-design-vector-flat-isolated-illustration.jpg?s=612x612&w=0&k=20&c=wQTW_vMhnZU26bnC5uYYXM-8Ee5h6qc_nedFW5nofNk=" alt="Structural Plans Icon" class="service-icon">
-            <h3>Structural Plans</h3>
-            <p>Foundation design, framing plans, beams, and calculations to ensure safety and compliance.</p>
-          </div>
-          <div class="service-item">
-            <img src="https://img.freepik.com/free-vector/bundle-engineering-set-icons_24877-57318.jpg?semt=ais_hybrid&w=740&q=80" alt="MEP Coordination Icon" class="service-icon">
-            <h3>MEP Coordination</h3>
-            <p>Mechanical, electrical, and plumbing systems integrated seamlessly with architectural and structural plans.</p>
-          </div>
-          <div class="service-item">
-            <img src="https://media.istockphoto.com/id/2148230612/vector/approval-icon-set.jpg?s=612x612&w=0&k=20&c=ExmKia2shljNCTIeWZeRGtuo8f0GOJtRMthm9V1ax4w=" alt="Permit Support Icon" class="service-icon">
-            <h3>Permit Support & Specialty Items</h3>
-            <p>Full permit sets, revisions, and jurisdiction-specific requirements handled from submission to approval.</p>
-          </div>
+          <a href="civil-coordination.html" class="service-link">
+              <div class="service-item">
+                <img src="https://media.istockphoto.com/id/1474854515/vector/building-architecture-and-engineering-thin-line-icons-editable-stroke.jpg?s=612x612&w=0&k=20&c=B2UcKDj3jenq6HlTUJdfeULLC6fJ6EU6p6SE8SlvOWs=" alt="Civil Plans Icon" class="service-icon">
+                <h3>Civil Plans</h3>
+                <p>Site plans, grading, drainage, and utility coordination tailored for smooth permit approval.</p>
+              </div>
+          </a>
+          <a href="architectural-coordination.html" class="service-link">
+              <div class="service-item">
+                <img src="https://media.istockphoto.com/id/1340093414/vector/interior-design-line-icons-vector-illustration-include-icon-architecture-blueprint-project.jpg?s=612x612&w=0&k=20&c=9Pn5gTDx-4-9oStC_SHsmA8c-7Sjeq-7nS-FqMSekDg=" alt="Architectural Plans Icon" class="service-icon">
+                <h3>Architectural Plans</h3>
+                <p>Building layouts, floor plans, elevations, and code-compliant designs for residential and commercial.</p>
+              </div>
+          </a>
+          <a href="structural-coordination.html" class="service-link">
+              <div class="service-item">
+                <img src="https://media.istockphoto.com/id/1663675264/vector/beam-construction-icon-design-vector-flat-isolated-illustration.jpg?s=612x612&w=0&k=20&c=wQTW_vMhnZU26bnC5uYYXM-8Ee5h6qc_nedFW5nofNk=" alt="Structural Plans Icon" class="service-icon">
+                <h3>Structural Plans</h3>
+                <p>Foundation design, framing plans, beams, and calculations to ensure safety and compliance.</p>
+              </div>
+          </a>
+          <a href="mep-coordination.html" class="service-link">
+              <div class="service-item">
+                <img src="https://img.freepik.com/free-vector/bundle-engineering-set-icons_24877-57318.jpg?semt=ais_hybrid&w=740&q=80" alt="MEP Coordination Icon" class="service-icon">
+                <h3>MEP Coordination</h3>
+                <p>Mechanical, electrical, and plumbing systems integrated seamlessly with architectural and structural plans.</p>
+              </div>
+          </a>
+          <a href="permit-support.html" class="service-link">
+              <div class="service-item">
+                <img src="https://media.istockphoto.com/id/2148230612/vector/approval-icon-set.jpg?s=612x612&w=0&k=20&c=ExmKia2shljNCTIeWZeRGtuo8f0GOJtRMthm9V1ax4w=" alt="Permit Support Icon" class="service-icon">
+                <h3>Permit Support & Specialty Items</h3>
+                <p>Full permit sets, revisions, and jurisdiction-specific requirements handled from submission to approval.</p>
+              </div>
+          </a>
         </div>
       </div>
     </section>
@@ -848,26 +868,29 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
+    if (window.AOS) {
+      AOS.init({ duration: 1000, once: true });
+    }
 
     window.addEventListener("scroll", function() {
       const header = document.getElementById("site-header");
-      header.classList.toggle("scrolled", window.scrollY > 50);
+      if (header) header.classList.toggle("scrolled", window.scrollY > 50);
     });
 
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // Mobile menu toggle
+  </script>
+  <script>
+    // Navigation: mobile menu and Services dropdown (dependency-free, keep standalone)
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+    }
 
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Services dropdown: first tap opens the menu where hover is not available
     const servicesDropdown = document.querySelector('.nav-dropdown');
     const servicesToggle = servicesDropdown ? servicesDropdown.querySelector(':scope > a') : null;
     if (servicesDropdown && servicesToggle) {

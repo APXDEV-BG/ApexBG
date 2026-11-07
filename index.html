@@ -130,9 +130,10 @@
 
     /* HERO */
     .hero {
-      background: linear-gradient(rgba(10, 23, 48, 0.7), rgba(10, 23, 48, 0.9)),
-      url('https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=1920&q=80')
-        center/cover no-repeat;
+      background: radial-gradient(ellipse 70% 60% at 50% 55%, rgba(10, 23, 48, 0.82) 0%, rgba(10, 23, 48, 0.45) 65%, rgba(10, 23, 48, 0.28) 100%),
+      linear-gradient(rgba(10, 23, 48, 0.22), rgba(10, 23, 48, 0.35)),
+      url('blueprint.svg') center/cover no-repeat,
+      #0a1730;
       color: #fff;
       display: flex;
       align-items: center;
@@ -486,6 +487,12 @@
       }
     }
     @media (max-width: 768px) {
+      .hero {
+        background: radial-gradient(ellipse 80% 55% at 50% 55%, rgba(10, 23, 48, 0.85) 0%, rgba(10, 23, 48, 0.5) 70%, rgba(10, 23, 48, 0.35) 100%),
+        linear-gradient(rgba(10, 23, 48, 0.25), rgba(10, 23, 48, 0.4)),
+        url('blueprint.svg') 80% 50%/cover no-repeat,
+        #0a1730;
+      }
       .menu-toggle {
         display: flex;
       }

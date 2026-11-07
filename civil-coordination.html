@@ -551,7 +551,7 @@
       <div class="logo">
         <img src="logo.png" alt="Apex BG Developments Logo" />
       </div>
-      <div class="menu-toggle" id="menu-toggle">
+      <div class="menu-toggle" id="menu-toggle" role="button" aria-label="Menu">
         <span></span>
         <span></span>
         <span></span>
@@ -686,19 +686,20 @@
   <script>
     window.addEventListener("scroll", function() {
       const header = document.getElementById("site-header");
-      header.classList.toggle("scrolled", window.scrollY > 50);
+      if (header) header.classList.toggle("scrolled", window.scrollY > 50);
     });
-
-    // Mobile menu toggle
+  </script>
+  <script>
+    // Navigation: mobile menu and Services dropdown (dependency-free, keep standalone)
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+    }
 
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    // Services dropdown: first tap opens the menu where hover is not available
     const servicesDropdown = document.querySelector('.nav-dropdown');
     const servicesToggle = servicesDropdown ? servicesDropdown.querySelector(':scope > a') : null;
     if (servicesDropdown && servicesToggle) {

@@ -81,6 +81,9 @@
     .nav-dropdown:focus-within .dropdown-menu {
       display: flex;
     }
+    .nav-dropdown.open .dropdown-menu {
+      display: flex;
+    }
     .nav .dropdown-menu a {
       margin-left: 0;
       padding: 0.75rem 1.25rem;
@@ -694,6 +697,25 @@
       menuToggle.classList.toggle('active');
       navMenu.classList.toggle('active');
     });
+
+    // Services dropdown: first tap opens the menu where hover is not available
+    const servicesDropdown = document.querySelector('.nav-dropdown');
+    const servicesToggle = servicesDropdown ? servicesDropdown.querySelector(':scope > a') : null;
+    if (servicesDropdown && servicesToggle) {
+      const mobileNav = window.matchMedia('(max-width: 768px)');
+      servicesToggle.addEventListener('click', (e) => {
+        if (mobileNav.matches) return;
+        if (!servicesDropdown.classList.contains('open')) {
+          e.preventDefault();
+          servicesDropdown.classList.add('open');
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (!servicesDropdown.contains(e.target)) {
+          servicesDropdown.classList.remove('open');
+        }
+      });
+    }
   </script>
 </body>
 </html>

@@ -58,6 +58,34 @@
     .nav a:hover {
       color: #66b3ff;
     }
+    /* Services dropdown */
+    .nav-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 80px;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 260px;
+      background: #0b1a3a;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      display: flex;
+    }
+    .nav .dropdown-menu a {
+      margin-left: 0;
+      padding: 0.75rem 1.25rem;
+      white-space: nowrap;
+    }
     .header-contact {
       color: #fff;
       font-size: 0.9rem;
@@ -460,7 +488,7 @@
         transition: max-height 0.4s ease;
       }
       .nav.active {
-        max-height: 600px;
+        max-height: 1000px;
       }
       .nav a {
         padding: 1.2rem;
@@ -468,6 +496,26 @@
         width: 100%;
         text-align: center;
         border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .nav-dropdown {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+      }
+      .dropdown-menu {
+        position: static;
+        display: flex;
+        min-width: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.05);
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+      }
+      .dropdown-menu a {
+        font-size: 0.92rem;
+        padding: 1rem;
+        color: #cfe1ff;
       }
       .hero-text h1 {
         font-size: 2.3rem;
@@ -507,8 +555,16 @@
         <span></span>
       </div>
       <nav class="nav" id="nav-menu">
-        <a href="#services">Services</a>
-        <a href="structural-coordination.html">Structural Coordination</a>
+        <div class="nav-dropdown">
+          <a href="#services">Services</a>
+          <div class="dropdown-menu">
+            <a href="structural-coordination.html">Structural Coordination</a>
+            <a href="civil-coordination.html">Civil Plan Coordination</a>
+            <a href="architectural-coordination.html">Architectural Plan Coordination</a>
+            <a href="mep-coordination.html">MEP Coordination</a>
+            <a href="permit-support.html">Permit Support</a>
+          </div>
+        </div>
         <a href="#portfolio">Portfolio</a>
         <a href="#process">How We Work</a>
         <a href="#about">About</a>

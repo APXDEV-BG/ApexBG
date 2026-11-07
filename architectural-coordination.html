@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Architectural Plan Coordination | Apex BG Developments LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Apex BG coordinates the designers and licensed engineers behind your architectural documents - floor plans, elevations, sections and details - and manages the city comments and resubmittals within the agreed scope of your project. Residential and commercial." />
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Font Awesome for Facebook Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+      background-color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(10, 23, 48, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    header.scrolled {
+      background: #0b1a3a;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo img {
+      height: 70px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav a:hover {
+      color: #66b3ff;
+    }
+    .header-contact {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-left: 1.5rem;
+      white-space: nowrap;
+    }
+    .header-contact a {
+      color: #66b3ff;
+      text-decoration: none;
+    }
+    .header-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(10, 23, 48, 0.7), rgba(10, 23, 48, 0.9)),
+      url('https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=1920&q=80')
+        center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+    .hero-content {
+      text-align: center;
+      width: 100%;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .hero-actions .btn {
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-weight: bold;
+      min-width: 200px;
+    }
+    .btn.primary {
+      background: #007bff;
+      color: #fff;
+    }
+    .btn.primary:hover {
+      background: #339dff;
+    }
+    .btn.secondary {
+      border: 2px solid #fff;
+      color: #fff;
+      background: transparent;
+    }
+    .btn.secondary:hover {
+      background: #fff;
+      color: #007bff;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 0;
+    }
+    .section-alt {
+      background: #f8f8f8;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+    .divider {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
+    .divider span {
+      color: #007bff;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .service-item {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .service-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      object-fit: contain;
+    }
+    .service-item h3 {
+      margin-bottom: 1rem;
+      color: #0b1a3a;
+    }
+    .service-item p {
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .portfolio-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .portfolio-image {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #f8f8f8;
+    }
+    .portfolio-content {
+      padding: 1.5rem;
+    }
+    .portfolio-content h3 {
+      margin: 0 0 0.8rem;
+      color: #0b1a3a;
+    }
+    .portfolio-content p {
+      line-height: 1.6;
+      color: #444;
+      margin: 0;
+    }
+
+    /* REVIEWS */
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #007bff;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b1a3a;
+    }
+    .review-rating {
+      margin-left: auto;
+      font-size: 1.4rem;
+      color: #ffd700;
+    }
+    .review-text {
+      line-height: 1.7;
+      color: #555;
+      font-size: 1rem;
+    }
+    .review-form-container {
+      margin-top: 5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .review-form h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0b1a3a;
+      font-size: 1.5rem;
+    }
+    .review-form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .review-form input,
+    .review-form select,
+    .review-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .review-form input:focus,
+    .review-form select:focus,
+    .review-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .review-form button {
+      background: #007bff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .review-form button:hover {
+      background: #0056b3;
+    }
+
+    /* CONTACT FORM */
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .contact-form button {
+      background: #007bff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+
+    /* FOOTER - With Facebook icon */
+    .site-footer {
+      background: #0b1a3a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .footer-contact {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .footer-contact a {
+      color: #66b3ff;
+      text-decoration: none;
+    }
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: #66b3ff;
+      font-size: 1.8rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #3b5998; /* Facebook blue */
+    }
+
+    /* RESPONSIVE IMPROVEMENTS */
+    @media (max-width: 992px) {
+      .header-contact {
+        display: none;
+      }
+      .nav a {
+        margin-left: 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      .nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #0b1a3a;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .nav.active {
+        max-height: 600px;
+      }
+      .nav a {
+        padding: 1.2rem;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions .btn {
+        width: 80%;
+        max-width: 300px;
+      }
+      .logo img {
+        height: 55px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header" id="site-header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="logo.png" alt="Apex BG Developments Logo" />
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav" id="nav-menu">
+        <a href="index.html#services">Services</a>
+        <a href="structural-coordination.html">Structural Coordination</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#process">How We Work</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact" class="nav-cta">Request a Quote</a>
+        <div class="header-contact">
+          <a href="mailto:info@apexbg.net">info@apexbg.net</a> | <a href="tel:+12147132593">(214) 713-2593</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <img src="logo.png" alt="Apex BG Developments" style="height:120px;margin-bottom:1.5rem;" />
+        <h1>Architectural Plan Coordination, One Point of Contact.</h1>
+        <p>
+          Apex BG coordinates the designers and licensed engineers behind your architectural documents - floor plans, elevations, sections and details - and manages the city comments and resubmittals within the agreed scope of your project. Residential and commercial.
+        </p>
+        <div class="hero-actions">
+          <a href="index.html#contact" class="btn primary">Request a Quote</a>
+          <a href="#scope" class="btn secondary">See What We Coordinate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE COORDINATE -->
+  <section class="section" id="scope">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We Coordinate</h2>
+        <p>
+          One team manages the architectural scope of your project. We coordinate the professionals behind each document and keep the set moving together, so you deal with one point of contact.
+        </p>
+        <div class="divider"><span>⸻</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>Floor Plans &amp; Layouts</h3>
+          <p>Building layouts and floor plans coordinated with the designers who produce them, prepared with your jurisdiction's review standards in mind.</p>
+        </div>
+        <div class="service-item">
+          <h3>Elevations &amp; Sections</h3>
+          <p>Elevations, sections and details coordinated as one managed set with the rest of your plans.</p>
+        </div>
+        <div class="service-item">
+          <h3>Code Requirements</h3>
+          <p>Code requirements tracked and coordinated into the design set, managed through review.</p>
+        </div>
+        <div class="service-item">
+          <h3>Permit Sets &amp; Revisions</h3>
+          <p>Architectural permit sets, revisions and city comments - we coordinate the paperwork and resubmittals within the agreed scope.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt" id="process">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>
+          We keep the process straightforward: understand the scope, identify what the jurisdiction requires, and manage the documents, the professionals, and the city comments through permitting.
+        </p>
+        <div class="divider"><span>⸻</span></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>1. Scope</h3>
+          <p>We learn your project, your site, and what your city or county requires before anything is drawn.</p>
+        </div>
+        <div class="service-item">
+          <h3>2. Coordination</h3>
+          <p>We manage the design process and coordinate with our professionals.</p>
+        </div>
+        <div class="service-item">
+          <h3>3. Review</h3>
+          <p>Documents go in prepared with city review standards in mind, and we manage the comments and resubmittals within the agreed scope.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-alt" id="quote">
+    <div class="container">
+      <div class="section-header">
+        <h2>Planning a project with architectural work?</h2>
+        <p>
+          Tell us about the project and we will come back with next steps, timeline, and deliverables.
+        </p>
+        <div class="divider"><span>⸻</span></div>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="index.html#contact" class="btn primary">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer class="site-footer">
+    <div class="container">
+      <p>© <span id="2025"></span> Apex BG Developments LLC. All rights reserved.</p>
+      <p>Plans & permit support for visionaries.</p>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@apexbg.net">info@apexbg.net</a> | Phone: <a href="tel:+12147132593">(214) 713-2593</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/bobby.greene.568659" target="_blank" aria-label="Bobby Greene on Facebook">
+          <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    window.addEventListener("scroll", function() {
+      const header = document.getElementById("site-header");
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

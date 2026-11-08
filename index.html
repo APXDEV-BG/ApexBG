@@ -446,6 +446,24 @@
       background: #0056b3;
     }
 
+    /* FILE UPLOAD BLOCK */
+    .upload-label { margin-top: 0.25rem; }
+    .upload-help { font-weight: 400; color: #666; font-size: 0.95rem; margin: -0.4rem 0 1rem; }
+    .upload-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.75rem; }
+    .upload-box {
+      border: 2px dashed #b9c8dd; border-radius: 12px; padding: 1.1rem 1rem;
+      text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+      display: block; font-weight: 600; color: #1a1a1a;
+    }
+    .upload-box:hover { border-color: #007bff; background: #f4f9ff; }
+    .upload-box i { display: block; font-size: 1.5rem; color: #007bff; margin-bottom: 0.5rem; }
+    .upload-box span { display: block; font-weight: 400; font-size: 0.85rem; color: #666; margin-top: 0.25rem; }
+    .upload-box input[type="file"] { display: none; }
+    .upload-note { font-size: 0.82rem; color: #888; text-align: center; letter-spacing: 0.04em; margin: 0 0 1.5rem; }
+    @media (max-width: 600px) {
+      .upload-grid { grid-template-columns: 1fr; }
+    }
+
     /* FOOTER - With Facebook icon */
     .site-footer {
       background: #0b1a3a;
@@ -833,7 +851,7 @@
           </p>
           <div class="divider"><span>⸻</span></div>
         </div>
-        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqekarzz" method="POST">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/xqekarzz" method="POST" enctype="multipart/form-data">
           <label for="c-name">Your Name *</label>
           <input type="text" id="c-name" name="name" required placeholder="John Doe">
           <label for="c-email">Email *</label>
@@ -850,6 +868,35 @@
           </select>
           <label for="c-message">Project Details *</label>
           <textarea id="c-message" name="message" rows="6" required placeholder="Tell us about your project, location, timeline, etc."></textarea>
+          <label class="upload-label">Project Files (optional)</label>
+          <p class="upload-help">Attach anything that helps us scope your project - it reaches us already sorted by category.</p>
+          <div class="upload-grid">
+            <label class="upload-box">
+              <i class="fa-regular fa-map"></i>
+              Survey &amp; Plat
+              <span>Boundary or topo survey, plat, legal description</span>
+              <input type="file" name="survey_plat" multiple>
+            </label>
+            <label class="upload-box">
+              <i class="fa-solid fa-layer-group"></i>
+              Plans &amp; Drawings
+              <span>Architectural or engineering sets, CAD files, markups</span>
+              <input type="file" name="plans_drawings" multiple>
+            </label>
+            <label class="upload-box">
+              <i class="fa-regular fa-file-lines"></i>
+              City &amp; Permit Docs
+              <span>Comment letters, zoning letters, prior permits</span>
+              <input type="file" name="city_permit_docs" multiple>
+            </label>
+            <label class="upload-box">
+              <i class="fa-regular fa-images"></i>
+              Photos &amp; Everything Else
+              <span>Site photos, renderings, pro formas - anything that helps</span>
+              <input type="file" name="photos_other" multiple>
+            </label>
+          </div>
+          <p class="upload-note">PDF &middot; DWG &middot; DXF &middot; RVT &middot; XLSX &middot; IMAGES &middot; ZIP &mdash; up to 25 MB per file</p>
           <button type="submit">Submit Request</button>
         </form>
       </div>

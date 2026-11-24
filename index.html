@@ -9,6 +9,8 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <!-- Font Awesome for Facebook Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -578,6 +580,67 @@
         padding: 60px 0;
       }
     }
+  
+    /* ===== DOTEC-STYLE THEME ===== */
+    body { font-family: Roboto, Arial, sans-serif !important; color: #252525 !important; }
+    h1, h2, h3, h4, h5 { font-family: Montserrat, sans-serif !important; }
+    header, header.scrolled { background: rgba(0,0,0,.45) !important; }
+    .nav > a, .nav-dropdown > a, .header-contact a { text-transform: uppercase; font-family: Montserrat, sans-serif !important; font-weight: 600; font-size: 11.5px; letter-spacing: 1.2px; }
+    .nav .nav-cta { background: #001AD3 !important; color: #fff !important; border-radius: 0 !important; text-transform: uppercase; font-weight: 700; letter-spacing: 1.2px; padding: 12px 20px !important; }
+    .dropdown-menu a { text-transform: none !important; }
+    .btn, .hero-actions .btn { text-decoration: none !important; border-radius: 0 !important; text-transform: uppercase; font-family: Montserrat, sans-serif !important; font-weight: 700 !important; font-size: 13px !important; letter-spacing: 1.5px; padding: 16px 30px !important; min-width: 0 !important; }
+    .btn.primary { background: #001AD3 !important; border: 2px solid #001AD3 !important; color: #fff !important; }
+    .btn.primary:hover { background: #0013a8 !important; }
+    .btn.secondary { background: transparent !important; border: 2px solid #fff !important; color: #fff !important; }
+    .hero { background: none !important; background-color: #0a0a0a !important; position: relative; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.5) 100%); z-index: 0; }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-content { text-align: left !important; }
+    .hero-text > img { display: none !important; }
+    .hero-text h1 { font-weight: 800 !important; font-size: 2.9rem !important; line-height: 1.15 !important; }
+    .hero-text p { font-family: Roboto, sans-serif; color: rgba(255,255,255,.85); }
+    .hero-actions { justify-content: flex-start !important; }
+    .dt-eyebrow { font-family: Montserrat, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+    .dt-eyebrow::after { content: ""; display: block; width: 42px; height: 3px; background: #001AD3; margin-top: 10px; }
+    .section-header h2 { font-weight: 700 !important; letter-spacing: .5px; }
+    .divider span { color: #001AD3 !important; }
+    .service-item { border-radius: 0 !important; box-shadow: 0 2px 14px rgba(0,0,0,.08) !important; }
+    .service-item h3 { font-weight: 700 !important; }
+    .review-card { border-radius: 0 !important; }
+    footer, .site-footer { background: #050505 !important; }
+    .portfolio-link { color: #4d79ff; text-transform: uppercase; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-decoration: none; }
+    @media (max-width: 900px) {
+      .dt-quote { display: none; }
+      .hero-text { max-width: 100% !important; }
+      .hero-text h1 { font-size: 2rem !important; }
+    }
+
+    /* home hero: B&W photo */
+    .hero::before { content: ""; position: absolute; inset: 0; background: url('1-hero-bg.jpg') center/cover no-repeat; filter: grayscale(1) brightness(.5); z-index: 0; }
+    .hero-text { max-width: 56%; }
+    /* floating quote card */
+    .dt-quote { position: absolute; right: 4%; top: 50%; transform: translateY(-50%); width: 370px; background: rgba(14,14,14,.93); padding: 26px; z-index: 2; }
+    .dt-quote .dt-row { display: flex; gap: 12px; }
+    .dt-quote label { display: block; font-family: Montserrat, sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 1.5px; color: rgba(255,255,255,.55); margin-bottom: 6px; }
+    .dt-quote input, .dt-quote select, .dt-quote textarea { width: 100%; background: #161616; border: 1px solid #2c2c2c; color: #fff; padding: 10px 12px; font-family: Roboto, sans-serif; font-size: 14px; box-sizing: border-box; }
+    .dt-quote .dt-field { flex: 1; margin-bottom: 14px; }
+    .dt-quote button { width: 100%; background: #001AD3; color: #fff; border: none; padding: 15px; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1.5px; cursor: pointer; }
+    /* portfolio -> dark projects band */
+    #portfolio { background: #0a0a0a !important; position: relative; }
+    #portfolio::before { content: ""; position: absolute; inset: 0; background: url('blueprint.svg') center/60% repeat; opacity: .07; }
+    #portfolio .container { position: relative; }
+    #portfolio .section-header h2, #portfolio .section-header p { color: #fff !important; }
+    .portfolio-item { background: #141414 !important; border-radius: 0 !important; }
+    .portfolio-item .portfolio-content h3 { color: #fff !important; font-weight: 700 !important; }
+    .portfolio-item .portfolio-content p { color: rgba(255,255,255,.65) !important; }
+    /* contact -> dark band */
+    #contact { background: #0f0f0f !important; }
+    #contact .section-header h2, #contact .section-header p { color: #fff !important; }
+    #contact label, #contact .upload-label, #contact .upload-help { color: rgba(255,255,255,.75) !important; }
+    #contact input, #contact select, #contact textarea { background: #161616 !important; border: 1px solid #2c2c2c !important; color: #fff !important; border-radius: 0 !important; }
+    #contact .upload-box { background: #161616 !important; border-color: #2c2c2c !important; border-radius: 0 !important; color: rgba(255,255,255,.75) !important; }
+    #contact .contact-form { background: transparent !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; }
+    #contact button, #contact .btn, #contact input[type=submit] { border-radius: 0 !important; }
   </style>
   <link rel="canonical" href="https://www.apexbg.net/" />
   <meta property="og:type" content="website" />
@@ -635,6 +698,8 @@
           </div>
         </div>
         <a href="#portfolio">Portfolio</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        
         <a href="#process">How We Work</a>
         <a href="#about">About</a>
         <a href="#reviews">Reviews</a>
@@ -650,6 +715,7 @@
   <section class="hero" id="hero">
     <div class="container hero-content" data-aos="fade-up">
       <div class="hero-text">
+        <div class="dt-eyebrow">Apex BG Developments LLC</div>
         <img src="logo.png" alt="Apex BG Developments" style="height:120px;margin-bottom:1.5rem;" />
         <h1>Design Management That Keeps Your Project Moving.</h1>
         <p>
@@ -661,6 +727,19 @@
         </div>
       </div>
     </div>
+    <form class="dt-quote" action="https://formspree.io/f/xqekarzz" method="POST">
+      <div class="dt-row">
+        <div class="dt-field"><label>FIRST</label><input name="first_name" required></div>
+        <div class="dt-field"><label>LAST</label><input name="last_name" required></div>
+      </div>
+      <div class="dt-row">
+        <div class="dt-field"><label>EMAIL</label><input type="email" name="email" required></div>
+        <div class="dt-field"><label>PHONE</label><input type="tel" name="phone"></div>
+      </div>
+      <div class="dt-field"><label>TYPE OF SERVICE</label><select name="project-type"><option value="">---</option><option value="residential">Residential</option><option value="commercial">Commercial (Restaurant, Office, etc.)</option><option value="civil">Civil / Site Development</option><option value="other">Other</option></select></div>
+      <div class="dt-field"><label>MESSAGE</label><textarea name="message" rows="4" required></textarea></div>
+      <button type="submit">SEND MESSAGE</button>
+    </form>
   </section>
 
   <!-- MAIN CONTENT -->
@@ -734,6 +813,7 @@
             <div class="portfolio-content">
               <h3>Back Nine Golf – Commercial Entertainment Build</h3>
               <p>We supported the build-out of this indoor golf entertainment space, helping bring a high-end, tech-driven concept to life. With support, our team helped make sure the space was clean, functional, and ready for heavy commercial use. This is one of many entertainment projects we’ve helped deliver for repeat clients.</p>
+              <p><a class="portfolio-link" href="back-nine-golf.html">View Project &#8594;</a></p>
             </div>
           </div>
           <div class="portfolio-item">
@@ -741,6 +821,7 @@
             <div class="portfolio-content">
               <h3>Modern Residential Home</h3>
               <p>Provided planning for this modern single-family home, ensuring efficient routing, proper tie-ins, and smooth city approval. Our work helped streamline construction and keep the project moving without delays.</p>
+              <p><a class="portfolio-link" href="modern-residential-home.html">View Project &#8594;</a></p>
             </div>
           </div>
           <div class="portfolio-item">
@@ -748,6 +829,7 @@
             <div class="portfolio-content">
               <h3>Tropical Smoothie Café – Retail Buildout</h3>
               <p>Designed plans and coordination with the city for this Tropical Smoothie Café location, helping streamline the layout, exterior design, and site integration. A clean, efficient build designed for high traffic, strong branding, and smooth day-to-day operations.</p>
+              <p><a class="portfolio-link" href="tropical-smoothie-cafe.html">View Project &#8594;</a></p>
             </div>
           </div>
           <div class="portfolio-item">
@@ -755,6 +837,7 @@
             <div class="portfolio-content">
               <h3>Outdoor Sauna – Structural Design</h3>
               <p>APEX delivered the design for this modern outdoor sauna, ensuring strength, stability, and clean lines. Created for durability and compliance, this build blends premium aesthetics with long-term performance.</p>
+              <p><a class="portfolio-link" href="outdoor-sauna.html">View Project &#8594;</a></p>
             </div>
           </div>
           <div class="portfolio-item">
@@ -762,6 +845,7 @@
             <div class="portfolio-content">
               <h3>Patio Covers & Outdoor Living Spaces</h3>
               <p>Bring dozens of outdoor living projects like these to life year-round, supporting everything from layout planning to city/county coordination. These are just a few examples — we assist with over 20+ patio cover projects every year, helping homeowners create clean, functional, and long-lasting outdoor spaces built to fit their lifestyle.</p>
+              <p><a class="portfolio-link" href="patio-covers.html">View Project &#8594;</a></p>
             </div>
           </div>
           <div class="portfolio-item">
@@ -769,6 +853,7 @@
             <div class="portfolio-content">
               <h3>20,000+ SF Dormitory – Concept & Design Support</h3>
               <p>Assisted in the planning and design coordination for this 20,000 SF dormitory concept, helping shape a clean, modern layout built for scale and functionality. From early layout strategy to overall project coordination, this project reflects our experience handling large-footprint residential and institutional developments.</p>
+              <p><a class="portfolio-link" href="dormitory-concept.html">View Project &#8594;</a></p>
             </div>
           </div>
         </div>
@@ -804,6 +889,7 @@
             scrutiny.
           </p>
           <div class="divider"><span>⸻</span></div>
+          <p style="text-align:center;margin-top:1.5rem;"><a class="btn primary" href="about.html">Our Story</a></p>
         </div>
       </div>
     </section>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>20,000+ SF Dormitory   Concept   Design Support | Apex BG Developments LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="20,000+ SF Dormitory   Concept   Design Support - an Apex BG Developments project. Plans and permit coordination from one team." />
+  <!-- Font Awesome for Facebook Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+      background-color: #fff;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(10, 23, 48, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+    header.scrolled {
+      background: #0b1a3a;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+    .logo img {
+      height: 70px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav a:hover {
+      color: #66b3ff;
+    }
+    /* Services dropdown */
+    .nav-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 80px;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 260px;
+      background: #0b1a3a;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      display: flex;
+    }
+    .nav-dropdown.open .dropdown-menu {
+      display: flex;
+    }
+    .nav .dropdown-menu a {
+      margin-left: 0;
+      padding: 0.75rem 1.25rem;
+      white-space: nowrap;
+    }
+    .header-contact {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-left: 1.5rem;
+      white-space: nowrap;
+    }
+    .header-contact a {
+      color: #66b3ff;
+      text-decoration: none;
+    }
+    .header-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Hamburger Menu */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .menu-toggle span {
+      background: #fff;
+      height: 3px;
+      width: 25px;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(10, 23, 48, 0.7), rgba(10, 23, 48, 0.9)),
+      url('https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=1920&q=80')
+        center/cover no-repeat;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+    .hero-content {
+      text-align: center;
+      width: 100%;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .hero-actions .btn {
+      padding: 0.9rem 1.6rem;
+      border-radius: 8px;
+      font-weight: bold;
+      min-width: 200px;
+    }
+    .btn.primary {
+      background: #007bff;
+      color: #fff;
+    }
+    .btn.primary:hover {
+      background: #339dff;
+    }
+    .btn.secondary {
+      border: 2px solid #fff;
+      color: #fff;
+      background: transparent;
+    }
+    .btn.secondary:hover {
+      background: #fff;
+      color: #007bff;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 0;
+    }
+    .section-alt {
+      background: #f8f8f8;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+    .divider {
+      margin: 1.5rem auto;
+      text-align: center;
+    }
+    .divider span {
+      color: #007bff;
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .service-item {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .service-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      object-fit: contain;
+    }
+    .service-item h3 {
+      margin-bottom: 1rem;
+      color: #0b1a3a;
+    }
+    .service-item p {
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* PORTFOLIO */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .portfolio-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.12);
+    }
+    .portfolio-image {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      background: #f8f8f8;
+    }
+    .portfolio-content {
+      padding: 1.5rem;
+    }
+    .portfolio-content h3 {
+      margin: 0 0 0.8rem;
+      color: #0b1a3a;
+    }
+    .portfolio-content p {
+      line-height: 1.6;
+      color: #444;
+      margin: 0;
+    }
+
+    /* REVIEWS */
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-5px);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #007bff;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0b1a3a;
+    }
+    .review-rating {
+      margin-left: auto;
+      font-size: 1.4rem;
+      color: #ffd700;
+    }
+    .review-text {
+      line-height: 1.7;
+      color: #555;
+      font-size: 1rem;
+    }
+    .review-form-container {
+      margin-top: 5rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .review-form h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0b1a3a;
+      font-size: 1.5rem;
+    }
+    .review-form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .review-form input,
+    .review-form select,
+    .review-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .review-form input:focus,
+    .review-form select:focus,
+    .review-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .review-form button {
+      background: #007bff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .review-form button:hover {
+      background: #0056b3;
+    }
+
+    /* CONTACT FORM */
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .contact-form button {
+      background: #007bff;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s;
+      width: 100%;
+    }
+    .contact-form button:hover {
+      background: #0056b3;
+    }
+
+    /* FOOTER - With Facebook icon */
+    .site-footer {
+      background: #0b1a3a;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .footer-contact {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .footer-contact a {
+      color: #66b3ff;
+      text-decoration: none;
+    }
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+    .social-icons {
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      color: #66b3ff;
+      font-size: 1.8rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #3b5998; /* Facebook blue */
+    }
+
+    /* RESPONSIVE IMPROVEMENTS */
+    @media (max-width: 992px) {
+      .header-contact {
+        display: none;
+      }
+      .nav a {
+        margin-left: 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      .nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #0b1a3a;
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .nav.active {
+        max-height: 1000px;
+      }
+      .nav a {
+        padding: 1.2rem;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .nav-dropdown {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+      }
+      .dropdown-menu {
+        position: static;
+        display: flex;
+        min-width: 0;
+        width: 100%;
+        background: rgba(255,255,255,0.05);
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+      }
+      .dropdown-menu a {
+        font-size: 0.92rem;
+        padding: 1rem;
+        color: #cfe1ff;
+      }
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-actions .btn {
+        width: 80%;
+        max-width: 300px;
+      }
+      .logo img {
+        height: 55px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 60px 0;
+      }
+    }
+  
+
+    /* ===== DOTEC-STYLE THEME ===== */
+    body { font-family: Roboto, Arial, sans-serif !important; color: #252525 !important; }
+    h1, h2, h3, h4, h5 { font-family: Montserrat, sans-serif !important; }
+    header, header.scrolled { background: rgba(0,0,0,.45) !important; }
+    .nav > a, .nav-dropdown > a, .header-contact a { text-transform: uppercase; font-family: Montserrat, sans-serif !important; font-weight: 600; font-size: 11.5px; letter-spacing: 1.2px; }
+    .nav .nav-cta { background: #001AD3 !important; color: #fff !important; border-radius: 0 !important; text-transform: uppercase; font-weight: 700; letter-spacing: 1.2px; padding: 12px 20px !important; }
+    .dropdown-menu a { text-transform: none !important; }
+    .btn, .hero-actions .btn { text-decoration: none !important; border-radius: 0 !important; text-transform: uppercase; font-family: Montserrat, sans-serif !important; font-weight: 700 !important; font-size: 13px !important; letter-spacing: 1.5px; padding: 16px 30px !important; min-width: 0 !important; }
+    .btn.primary { background: #001AD3 !important; border: 2px solid #001AD3 !important; color: #fff !important; }
+    .btn.primary:hover { background: #0013a8 !important; }
+    .btn.secondary { background: transparent !important; border: 2px solid #fff !important; color: #fff !important; }
+    .hero { background: none !important; background-color: #0a0a0a !important; position: relative; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.5) 100%); z-index: 0; }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-content { text-align: left !important; }
+    .hero-text > img { display: none !important; }
+    .hero-text h1 { font-weight: 800 !important; font-size: 2.9rem !important; line-height: 1.15 !important; }
+    .hero-text p { font-family: Roboto, sans-serif; color: rgba(255,255,255,.85); }
+    .hero-actions { justify-content: flex-start !important; }
+    .dt-eyebrow { font-family: Montserrat, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+    .dt-eyebrow::after { content: ""; display: block; width: 42px; height: 3px; background: #001AD3; margin-top: 10px; }
+    .section-header h2 { font-weight: 700 !important; letter-spacing: .5px; }
+    .divider span { color: #001AD3 !important; }
+    .service-item { border-radius: 0 !important; box-shadow: 0 2px 14px rgba(0,0,0,.08) !important; }
+    .service-item h3 { font-weight: 700 !important; }
+    .review-card { border-radius: 0 !important; }
+    footer, .site-footer { background: #050505 !important; }
+    .portfolio-link { color: #4d79ff; text-transform: uppercase; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-decoration: none; }
+    @media (max-width: 900px) {
+      .dt-quote { display: none; }
+      .hero-text { max-width: 100% !important; }
+      .hero-text h1 { font-size: 2rem !important; }
+    }
+
+    /* subpage hero: black + faint blueprint motif */
+    .hero::before { content: ""; position: absolute; inset: 0; background: url('blueprint.svg') center/70% repeat; opacity: .14; z-index: 0; }
+    .hero-text { max-width: 62%; }
+    @media (max-width: 900px) { .hero-text { max-width: 100% !important; } }
+
+    .page-img { width: 100%; max-width: 900px; display: block; margin: 2rem auto; box-shadow: 0 2px 18px rgba(0,0,0,.12); }
+    .cta-band { text-align: center; }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="logo.png" alt="Apex BG Developments Logo" />
+      </div>
+      <div class="menu-toggle" id="menu-toggle" role="button" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav" id="nav-menu">
+        <div class="nav-dropdown">
+          <a href="index.html#services">Services</a>
+          <div class="dropdown-menu">
+            <a href="structural-coordination.html">Structural Coordination</a>
+            <a href="civil-coordination.html">Civil Plan Coordination</a>
+            <a href="architectural-coordination.html">Architectural Plan Coordination</a>
+            <a href="mep-coordination.html">MEP Coordination</a>
+            <a href="permit-support.html">Permit Support</a>
+          </div>
+        </div>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        <a href="index.html#process">How We Work</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact" class="nav-cta">Request a Quote</a>
+        <div class="header-contact">
+          <a href="mailto:info@apexbg.net">info@apexbg.net</a> | <a href="tel:+12147132593">(214) 713-2593</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <section class="hero" id="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="dt-eyebrow">Our Work</div>
+        <h1>20,000+ SF Dormitory &#8211; Concept &amp; Design Support</h1>
+        <p>Assisted in the planning and design coordination for this 20,000 SF dormitory concept, helping shape a clean, modern layout built for scale and functionality.</p>
+        <div class="hero-actions">
+          <a href="index.html#contact" class="btn primary">Request a Quote</a>
+          <a href="index.html#portfolio" class="btn secondary">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>20,000+ SF Dormitory &#8211; Concept &amp; Design Support</h2>
+          <div class="divider"><span>&#9208;</span></div>
+        </div>
+        <img src="project6.png" alt="20,000+ SF Dormitory &#8211; Concept &amp; Design Support" class="page-img">
+        <div class="section-header">
+          <p>Assisted in the planning and design coordination for this 20,000 SF dormitory concept, helping shape a clean, modern layout built for scale and functionality. From early layout strategy to overall project coordination, this project reflects our experience handling large-footprint residential and institutional developments.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt cta-band">
+      <div class="container">
+        <div class="section-header">
+          <h2>Planning something similar?</h2>
+          <p>Tell us about your project and we&#8217;ll get back to you with next steps.</p>
+        </div>
+        <p style="text-align:center;margin-top:1.5rem;"><a class="btn primary" href="index.html#contact">Request a Quote</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="2025"></span> Apex BG Developments LLC. All rights reserved.</p>
+      <p>Plans & permit support for visionaries.</p>
+      <div class="footer-contact">
+        <p>Email: <a href="mailto:info@apexbg.net">info@apexbg.net</a> | Phone: <a href="tel:+12147132593">(214) 713-2593</a></p>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/bobby.greene.568659" target="_blank" aria-label="Bobby Greene on Facebook">
+          <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener("scroll", function() {
+      const header = document.getElementById("site-header");
+      if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+  <script>
+    // Navigation: mobile menu and Services dropdown (dependency-free, keep standalone)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+    }
+
+    const servicesDropdown = document.querySelector('.nav-dropdown');
+    const servicesToggle = servicesDropdown ? servicesDropdown.querySelector(':scope > a') : null;
+    if (servicesDropdown && servicesToggle) {
+      const mobileNav = window.matchMedia('(max-width: 768px)');
+      servicesToggle.addEventListener('click', (e) => {
+        if (mobileNav.matches) return;
+        if (!servicesDropdown.classList.contains('open')) {
+          e.preventDefault();
+          servicesDropdown.classList.add('open');
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (!servicesDropdown.contains(e.target)) {
+          servicesDropdown.classList.remove('open');
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

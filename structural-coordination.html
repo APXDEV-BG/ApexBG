@@ -9,6 +9,8 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <!-- Font Awesome for Facebook Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -543,6 +545,45 @@
         padding: 60px 0;
       }
     }
+  
+    /* ===== DOTEC-STYLE THEME ===== */
+    body { font-family: Roboto, Arial, sans-serif !important; color: #252525 !important; }
+    h1, h2, h3, h4, h5 { font-family: Montserrat, sans-serif !important; }
+    header, header.scrolled { background: rgba(0,0,0,.45) !important; }
+    .nav > a, .nav-dropdown > a, .header-contact a { text-transform: uppercase; font-family: Montserrat, sans-serif !important; font-weight: 600; font-size: 11.5px; letter-spacing: 1.2px; }
+    .nav .nav-cta { background: #001AD3 !important; color: #fff !important; border-radius: 0 !important; text-transform: uppercase; font-weight: 700; letter-spacing: 1.2px; padding: 12px 20px !important; }
+    .dropdown-menu a { text-transform: none !important; }
+    .btn, .hero-actions .btn { text-decoration: none !important; border-radius: 0 !important; text-transform: uppercase; font-family: Montserrat, sans-serif !important; font-weight: 700 !important; font-size: 13px !important; letter-spacing: 1.5px; padding: 16px 30px !important; min-width: 0 !important; }
+    .btn.primary { background: #001AD3 !important; border: 2px solid #001AD3 !important; color: #fff !important; }
+    .btn.primary:hover { background: #0013a8 !important; }
+    .btn.secondary { background: transparent !important; border: 2px solid #fff !important; color: #fff !important; }
+    .hero { background: none !important; background-color: #0a0a0a !important; position: relative; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.5) 100%); z-index: 0; }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-content { text-align: left !important; }
+    .hero-text > img { display: none !important; }
+    .hero-text h1 { font-weight: 800 !important; font-size: 2.9rem !important; line-height: 1.15 !important; }
+    .hero-text p { font-family: Roboto, sans-serif; color: rgba(255,255,255,.85); }
+    .hero-actions { justify-content: flex-start !important; }
+    .dt-eyebrow { font-family: Montserrat, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; margin-bottom: 14px; }
+    .dt-eyebrow::after { content: ""; display: block; width: 42px; height: 3px; background: #001AD3; margin-top: 10px; }
+    .section-header h2 { font-weight: 700 !important; letter-spacing: .5px; }
+    .divider span { color: #001AD3 !important; }
+    .service-item { border-radius: 0 !important; box-shadow: 0 2px 14px rgba(0,0,0,.08) !important; }
+    .service-item h3 { font-weight: 700 !important; }
+    .review-card { border-radius: 0 !important; }
+    footer, .site-footer { background: #050505 !important; }
+    .portfolio-link { color: #4d79ff; text-transform: uppercase; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-decoration: none; }
+    @media (max-width: 900px) {
+      .dt-quote { display: none; }
+      .hero-text { max-width: 100% !important; }
+      .hero-text h1 { font-size: 2rem !important; }
+    }
+
+    /* subpage hero: black + faint blueprint motif */
+    .hero::before { content: ""; position: absolute; inset: 0; background: url('blueprint.svg') center/70% repeat; opacity: .14; z-index: 0; }
+    .hero-text { max-width: 62%; }
+    @media (max-width: 900px) { .hero-text { max-width: 100% !important; } }
   </style>
   <link rel="canonical" href="https://www.apexbg.net/structural-coordination.html" />
   <meta property="og:type" content="website" />
@@ -581,6 +622,8 @@
           </div>
         </div>
         <a href="index.html#portfolio">Portfolio</a>
+        <a href="who-we-serve.html">Who We Serve</a>
+        
         <a href="index.html#process">How We Work</a>
         <a href="index.html#about">About</a>
         <a href="index.html#reviews">Reviews</a>
@@ -595,6 +638,7 @@
   <section class="hero" id="hero">
     <div class="container hero-content">
       <div class="hero-text">
+        <div class="dt-eyebrow">Apex BG Developments LLC</div>
         <img src="logo.png" alt="Apex BG Developments" style="height:120px;margin-bottom:1.5rem;" />
         <h1>Structural Plan Coordination, One Point of Contact.</h1>
         <p>
